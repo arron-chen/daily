@@ -13,7 +13,7 @@
   "dependencies": {
     "vue": "^2.5.13",
     "vue-router": "^3.0.1",
-    "vux": "2.7.8"
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.5",
@@ -40,7 +40,6 @@
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.1.0",
     "postcss-url": "^7.3.0",
-    "request": "^2.83.0",
     "rimraf": "^2.6.2",
     "semver": "^5.5.0",
     "shelljs": "^0.8.1",
