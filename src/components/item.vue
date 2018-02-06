@@ -1,5 +1,5 @@
 <template>
-    <a class="daily-item">
+    <a class="daily-item" @click="showArticle">
       <div class="daily-img" v-if="data.images">
         <img :src="imgPath + data.images[0] ">
       </div>
@@ -17,6 +17,11 @@
     data(){
       return {
         imgPath: $.imgPath
+      }
+    },
+    methods:{
+      showArticle(){
+        
       }
     }
   }

@@ -13,14 +13,14 @@
       <template v-if="type === 'recommend'">
         <div v-for="list in recommendList">
           <div class="daily-date">{{ formatDay(list.date)}}</div>
-          <Item v-for="item in list.stories" :data="item" :key="item.id"></Item>
+          <Item v-for="item in list.stories" :data="item" :key="item.id" @click.native="handleClickListItem(item.id)"></Item>
         </div>
       </template>
       <template v-if="type === 'daily'">
-        <Item v-for="item in list" :data="item" :key="item.id"></Item>
+        <Item v-for="item in list" :data="item" :key="item.id"  @click.native="handleClickListItem(item.id)"></Item>
       </template>
     </div>
-    <daily-article></daily-article>
+    <daily-article :id="articleId"></daily-article>
   </div>
 </template>
 
@@ -43,7 +43,8 @@ export default {
       list:{},
       dailyTime:$.getTodayTime(),
       isLoading:false,
-      themeId:0
+      themeId:0,
+      articleId:0,
     }
   },
   methods:{
@@ -85,6 +86,9 @@ export default {
       if(month.substr(0,1) === '0') month =month.substr(1,1);
       if(day.substr(0,1)=== '0') day=day.substr(1,1);
       return ` ${month}月${day}日`;
+    },
+    handleClickListItem(id){
+      this.articleId=id;
     }
   },
   mounted(){
