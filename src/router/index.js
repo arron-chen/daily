@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import report from '../components/report'
+import report from '../components/report'
 
 Vue.use(Router)
 
