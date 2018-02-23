@@ -174,7 +174,10 @@ export default {
   }
   .daily-date{
     text-align: center;
-    margin:10px 0;
+    padding:20px 0;
+    font-weight: bold;
+    border-top:1px solid #efefef;
+    border-bottom:1px solid #efefef;
   }
   .daily-item{
     display: block;
@@ -207,16 +210,16 @@ export default {
     border-bottom:1px dashed #e3e8ee;
 
   }
-  .daily-comment-avatar {
+  .daily-comment-avatar{
     width:50px;
     height:50px;
     float:left;
   }
-  .daily-comment-avatar img{
+ /* .daily-comment-avatar img{
     width:100%;
     height:100%;
     border-radius:3px;
-  }
+  }*/
   .daily-comment-content{
     margin-left:65px;
   }
@@ -229,4 +232,24 @@ export default {
   .daily-comment-text{
     margin-top:10px;
   }
+  /*定义滚动条宽高及背景，宽高分别对应横竖滚动条的尺寸*/
+  .daily-list::-webkit-scrollbar{
+    width: 12px;
+    height: 12px;
+  }
+  /*定义滚动条的轨道，内阴影及圆角*/
+  .daily-list::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
+    border-radius: 10px;
+    background-color: #ffffff;
+  }
+  /*定义滑块，内阴影及圆角*/
+  .daily-list::-webkit-scrollbar-thumb{
+    /*width: 10px;*/
+    height: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
+    background-color:gray;
+  }
+
 </style>

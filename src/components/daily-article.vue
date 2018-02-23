@@ -1,20 +1,21 @@
 <template>
     <div class="daily-article">
-      <div class="daily-article-tilte">{{data.title}}</div>
+      <!--<div class="daily-article-title">{{data.title}}</div>-->
       <div class="daily-article-content" v-html="data.body"></div>
 
       <div class="daily-comments" v-show="comments.length">
-        <span>评论({{comments.length}})</span>
-        <div class="daily-comment" v-for="comment in comments">
-          <div class="daily-commnet-avatar">
+        <span class="daily-comment-count">评论({{comments.length}})</span>
+        <div class="daily-comment clearfloat" v-for="comment in comments">
+          <div class="daily-comment-avatar">
             <img :src="comment.avatar">
           </div>
           <div class="daily-comment-content">
-            <div class="daily-comment-name">{{comment.author}}</div>
-            <div class="daily-comment-time" v-time="comment.time"></div>
+            <div class="daily-comment-name"><a>{{comment.author}}</a></div>
             <div class="daily-comment-text">{{comment.content}}</div>
+            <div class="daily-comment-time" v-time="comment.time"></div>
           </div>
         </div>
+        <div class="clr"></div>
       </div>
     </div>
 </template>
@@ -66,16 +67,39 @@
     }
   }
 </script>
-<style>
+<style scoped>
   .daily-article{
     margin-left:450px;
-    padding:20px;
+    padding:0 20px 20px 20px;
+
+  }
+  /*定义滚动条宽高及背景，宽高分别对应横竖滚动条的尺寸*/
+  .daily-article::-webkit-scrollbar{
+    width: 12px;
+    height: 12px;
+  }
+  /*定义滚动条的轨道，内阴影及圆角*/
+  .daily-article::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
+    border-radius: 10px;
+    background-color: #ffffff;
+  }
+  /*定义滑块，内阴影及圆角*/
+  .daily-article::-webkit-scrollbar-thumb{
+    /*width: 10px;*/
+    height: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
+    background-color:gray;
   }
   .daily-article-title{
     font-size:28px;
     font-weight:bold;
     color:#222;
     padding:10px 0;
+  }
+  .view-more{
+    text-align: center;
   }
   .view-more a{
     display: block;
@@ -87,4 +111,40 @@
     padding:4px 0;
     border-radius:3px;
   }
+  .daily-comment{
+    display:flex;
+  }
+  .daily-comment-count{
+    text-align: center;
+  }
+  .daily-comment-avatar{
+    display:inline-block;
+    float:left;
+    padding:20px;
+    border-radius:50%;
+  }
+  .daily-comment-avatar img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+  }
+  .daily-comment-content{
+    float:left;
+    padding-top:20px;
+    line-height: 25px;
+  }
+  .daily-comment-name{
+    display: inline-block;
+    font-weight: bold;
+  }
+  .daily-comment-name a{
+    text-align: left;
+  }
+  .daily-comment-time{
+    color:gray;
+  }
+  /*清除浮动代码*/
+  .clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+  .clearfloat{zoom:1}
+
 </style>

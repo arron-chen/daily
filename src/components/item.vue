@@ -21,7 +21,7 @@
     },
     methods:{
       showArticle(){
-        
+
       }
     }
   }
@@ -45,7 +45,7 @@
     border-radius:3px;
   }
   .daily-title{
-    padding:10px 5px 10px 90px;
+    padding:inherit;
   }
   .daily-title.noImg{
     padding-left:5px;
